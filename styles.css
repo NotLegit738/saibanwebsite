@@ -1,0 +1,2286 @@
+/* Reset and base styles */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mobile-home-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(0, 188, 212, 0.8);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+}
+
+.mobile-home-button i {
+    font-size: 1.2rem;
+}
+
+.mobile-home-button:hover {
+    background-color: rgba(0, 151, 167, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Navigation Styles */
+.logo h1 {
+    color: white;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(0, 188, 212, 0.8);
+    display: block;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 151, 167, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero.welcome-page {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://cdn.discordapp.com/attachments/1359850695213449326/1369979432806125689/image.png?ex=681dd445&is=681c82c5&hm=164a4be690dd5fdff6b30f36da7abc110b45b9fdc3dc475b393119233569d541&');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 2000px;
+    padding: 0 2rem;
+    animation: fadeIn 2s ease-in;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    line-height: 1.1;
+}
+
+.hero h2 span {
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    min-width: 150px;
+}
+
+.contact-button {
+    background-color: #00bcd4;
+}
+
+.contact-button:hover {
+    background-color: #0097a7;
+}
+
+.cta-button:hover {
+    background-color: #0097a7;
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* About Section */
+.about {
+    background-color: #f9f9f9;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.about p {
+    color: #34495e;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+.services h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 188, 212, 0.2);
+    border-color: #00bcd4;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(224, 247, 250, 0.95));
+}
+
+.service-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    animation: cardPulse 1.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes cardPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease;
+}
+
+.service-card:hover i {
+    color: #00bcd4;
+    transform: scale(1.2) rotate(360deg);
+}
+
+.service-card:hover h3 {
+    color: #00bcd4;
+}
+
+.service-card:hover p {
+    color: #0097a7;
+}
+
+.service-card:hover .exam-button,
+.service-card:hover .prayer-button,
+.service-card:hover .attendance-button {
+    background-color: #00bcd4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+.service-card:nth-child(1) i {
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.service-card:nth-child(2) i {
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.service-card:nth-child(3) i {
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.service-card:nth-child(4) i {
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.service-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Common button styles for all service card buttons */
+.service-card .exam-button,
+.service-card .prayer-button,
+.service-card .attendance-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .exam-button:hover,
+.service-card .prayer-button:hover,
+.service-card .attendance-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.attendance-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.attendance-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f9f9f9;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+.contact-info i {
+    color: #00bcd4;
+    margin-right: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero h2 span {
+        margin-bottom: 0.1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+/* Leaves Animation */
+.leaves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+}
+
+.hero.welcome-page .leaves {
+    display: block;
+}
+
+.leaves i {
+    position: absolute;
+    display: block;
+    font-size: 1.5rem;
+    animation: 
+        falling linear infinite,
+        fadeOut 1s ease-out forwards;
+    opacity: 0;
+}
+
+.leaves i:nth-child(1) {
+    left: 10%;
+    animation-duration: 15s;
+    animation-delay: 0s;
+    color: #ff69b4; /* Pink */
+}
+
+.leaves i:nth-child(2) {
+    left: 20%;
+    animation-duration: 18s;
+    animation-delay: 2s;
+    color: #32cd32; /* Green */
+}
+
+.leaves i:nth-child(3) {
+    left: 30%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+    color: #ffa500; /* Orange */
+}
+
+.leaves i:nth-child(4) {
+    left: 40%;
+    animation-duration: 16s;
+    animation-delay: 3s;
+    color: #ff69b4; /* Pink */
+}
+
+.leaves i:nth-child(5) {
+    left: 50%;
+    animation-duration: 14s;
+    animation-delay: 0.5s;
+    color: #32cd32; /* Green */
+}
+
+.leaves i:nth-child(6) {
+    left: 60%;
+    animation-duration: 17s;
+    animation-delay: 2.5s;
+    color: #ffa500; /* Orange */
+}
+
+.leaves i:nth-child(7) {
+    left: 70%;
+    animation-duration: 13s;
+    animation-delay: 1.5s;
+    color: #ff69b4; /* Pink */
+}
+
+.leaves i:nth-child(8) {
+    left: 80%;
+    animation-duration: 19s;
+    animation-delay: 3.5s;
+    color: #32cd32; /* Green */
+}
+
+.leaves i:nth-child(9) {
+    left: 90%;
+    animation-duration: 11s;
+    animation-delay: 0.8s;
+    color: #ffa500; /* Orange */
+}
+
+.leaves i:nth-child(10) {
+    left: 95%;
+    animation-duration: 20s;
+    animation-delay: 4s;
+    color: #ff69b4; /* Pink */
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Typewriter Animation */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+    animation: 
+        typing 2s steps(40, end),
+        fadeIn 2s ease-in;
+    color: white;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add some delay to each section for a cascading effect */
+#about.fade-in {
+    transition-delay: 0.2s;
+}
+
+#services.fade-in {
+    transition-delay: 0.4s;
+}
+
+#contact.fade-in {
+    transition-delay: 0.6s;
+}
+
+.prayer-timings {
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+.timings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.prayer-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.prayer-card:hover {
+    transform: translateY(-5px);
+}
+
+.prayer-card i {
+    font-size: 2.5rem;
+    color: #06eeff;
+    margin-bottom: 1rem;
+}
+
+.prayer-card h3 {
+    color: #1c3247;
+    margin-bottom: 0.5rem;
+}
+
+.prayer-card .time {
+    color: #2fecec;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.note {
+    margin-top: 3rem;
+    text-align: center;
+    color: #666;
+}
+
+.note i {
+    color: #8e44ad;
+    margin-right: 0.5rem;
+}
+
+/* Add button to Daily Prayers card */
+.service-card:nth-child(1) {
+    position: relative;
+}
+
+.service-card:nth-child(1) .prayer-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:nth-child(1) .prayer-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ramzan-exam {
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+.ramzan-exam h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background-color: white;
+    border: 2px solid #00bcd4;
+    color: #00bcd4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-button:hover {
+    background-color: #e0f7fa;
+}
+
+.tab-button.active {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.tab-button i {
+    font-size: 1.2rem;
+}
+
+.results-table {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th {
+    background-color: #8e44ad;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    color: #34495e;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;
+}
+
+.results-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.results-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.status-pass {
+    color: #27ae60;
+    font-weight: 500;
+}
+
+.status-fail {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.results-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.results-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.student-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
+.student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.student-card.eligible {
+    border-color: #27ae60;
+}
+
+.student-card.not-eligible {
+    border-color: #e74c3c;
+}
+
+.initials-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.student-info {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.roll-no {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.progress-container {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.student-card.eligible .progress-fill {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.student-card.not-eligible .progress-fill {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-align: right;
+    font-weight: 500;
+}
+
+.student-card.eligible .progress-text {
+    color: #27ae60;
+}
+
+.student-card.not-eligible .progress-text {
+    color: #e74c3c;
+}
+
+.eligibility-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.eligibility-tag.eligible {
+    background-color: #27ae60;
+    color: white;
+    box-shadow: 0 2px 4px rgba(39, 174, 96, 0.2);
+}
+
+.eligibility-tag.not-eligible {
+    background-color: #e74c3c;
+    color: white;
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .student-card {
+        padding: 1.2rem;
+    }
+
+    .ramzan-exam h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Add button to Ramzan Exam card */
+.service-card:nth-child(3) {
+    position: relative;
+}
+
+.service-card:nth-child(3) .exam-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:nth-child(3) .exam-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 2px solid #00bcd4;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00bcd4;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.contact-message {
+    color: #666;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        gap: 1rem;
+    }
+}
+
+.service-card:nth-child(2) .prayer-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:nth-child(2) .prayer-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:nth-child(1) .exam-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:nth-child(1) .exam-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-link {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-link:hover {
+    color: #0097a7;
+    transform: translateY(-2px);
+}
+
+.whatsapp-link i {
+    font-size: 1.2rem;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button i {
+    font-size: 1.2rem;
+}
+
+/* Exam Grid Styles */
+.exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.exam-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.exam-card i {
+    font-size: 3rem;
+    color: #00bcd4;
+    margin-bottom: 1rem;
+}
+
+.exam-card h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.exam-card p {
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.exam-button, .attendance-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.exam-button:hover, .attendance-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+}
+
+/* Ramzan Exam Section */
+.ramzan-exam {
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+.ramzan-exam h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .exam-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .exam-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Exam Results Styles */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background-color: white;
+    border: 2px solid #00bcd4;
+    color: #00bcd4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-button:hover {
+    background-color: #e0f7fa;
+}
+
+.tab-button.active {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.tab-button i {
+    font-size: 1.2rem;
+}
+
+.results-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.results-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.student-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
+.student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.student-card.eligible {
+    border-color: #27ae60;
+}
+
+.student-card.not-eligible {
+    border-color: #e74c3c;
+}
+
+.initials-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.student-info {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.roll-no {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.progress-container {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.student-card.eligible .progress-fill {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.student-card.not-eligible .progress-fill {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-align: right;
+    font-weight: 500;
+}
+
+.student-card.eligible .progress-text {
+    color: #27ae60;
+}
+
+.student-card.not-eligible .progress-text {
+    color: #e74c3c;
+}
+
+.eligibility-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.eligibility-tag.eligible {
+    background-color: #27ae60;
+    color: white;
+    box-shadow: 0 2px 4px rgba(39, 174, 96, 0.2);
+}
+
+.eligibility-tag.not-eligible {
+    background-color: #e74c3c;
+    color: white;
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 2px solid #00bcd4;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00bcd4;
+}
+
+.contact-section {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.contact-message {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .student-card {
+        padding: 1.2rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .tab-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.view-results-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.view-results-btn:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Navigation */
+    nav {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Hero Section */
+    .hero.welcome-page {
+        height: 60vh;
+        padding-top: 80px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero h2 span {
+        margin-bottom: 0.1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    /* About Section */
+    .about p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Prayer Timings */
+    .timings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prayer-card {
+        padding: 1rem;
+    }
+
+    /* Results Table */
+    .results-table {
+        overflow-x: auto;
+    }
+
+    .results-table table {
+        min-width: 600px;
+    }
+
+    /* Student Cards */
+    .student-card {
+        padding: 1rem;
+    }
+
+    .student-info {
+        padding: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-message {
+        padding: 1rem;
+    }
+
+    .contact-button {
+        width: 100%;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero h2 span {
+        margin-bottom: 0.1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .prayer-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .prayer-card .time {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+.mobile-home-button {
+    display: none;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.mobile-home-button:hover {
+    color: #00bcd4;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .mobile-home-button {
+        display: block;
+    }
+}
+
+/* Unified Card Hover Effects */
+.service-card,
+.prayer-card,
+.exam-card,
+.student-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: white;
+}
+
+.service-card:hover,
+.prayer-card:hover,
+.exam-card:hover,
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 188, 212, 0.2);
+    border-color: #00bcd4;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(224, 247, 250, 0.95));
+}
+
+.service-card:hover::after,
+.prayer-card:hover::after,
+.exam-card:hover::after,
+.student-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #00bcd4;
+    border-radius: inherit;
+    animation: cardPulse 1.5s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes cardPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Icon and Text Color Changes on Hover */
+.service-card:hover i,
+.prayer-card:hover i,
+.exam-card:hover i {
+    color: #00bcd4;
+    transform: scale(1.2) rotate(360deg);
+}
+
+.service-card:hover h3,
+.prayer-card:hover h3,
+.exam-card:hover h3 {
+    color: #00bcd4;
+}
+
+.service-card:hover p,
+.prayer-card:hover p,
+.exam-card:hover p {
+    color: #0097a7;
+}
+
+/* Button Hover Effects */
+.service-card:hover .exam-button,
+.service-card:hover .prayer-button,
+.service-card:hover .attendance-button,
+.exam-card:hover .exam-button,
+.prayer-card:hover .prayer-button {
+    background-color: #00bcd4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Student Card Specific Hover Effects */
+.student-card:hover .initials-circle {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+.student-card:hover .progress-fill {
+    background: linear-gradient(90deg, #00bcd4, #00e5ff);
+}
+
+.student-card:hover .eligibility-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Maintain Card Specific Styles */
+.student-card.eligible:hover {
+    border-color: #27ae60;
+}
+
+.student-card.not-eligible:hover {
+    border-color: #e74c3c;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .service-card:hover,
+    .prayer-card:hover,
+    .exam-card:hover,
+    .student-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .service-card:hover::after,
+    .prayer-card:hover::after,
+    .exam-card:hover::after,
+    .student-card:hover::after {
+        animation: cardPulse 2s infinite;
+    }
+}
+
+/* Ensure Smooth Transitions */
+.service-card,
+.prayer-card,
+.exam-card,
+.student-card,
+.service-card i,
+.prayer-card i,
+.exam-card i,
+.student-card .initials-circle,
+.service-card h3,
+.prayer-card h3,
+.exam-card h3,
+.service-card p,
+.prayer-card p,
+.exam-card p,
+.service-card .exam-button,
+.service-card .prayer-button,
+.service-card .attendance-button,
+.exam-card .exam-button,
+.prayer-card .prayer-button,
+.student-card .progress-fill,
+.student-card .eligibility-tag {
+    transition: all 0.3s ease;
+}
+
+/* Student Card Performance-based Hover Effects */
+.student-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.student-card.eligible {
+    border-color: #27ae60;
+}
+
+.student-card.not-eligible {
+    border-color: #e74c3c;
+}
+
+/* Hover effects for passing students (80% and above) */
+.student-card.eligible:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(39, 174, 96, 0.3);
+    border-color: #27ae60;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(39, 174, 96, 0.1));
+}
+
+.student-card.eligible:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #27ae60;
+    border-radius: inherit;
+    animation: cardPulseGreen 1.5s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover effects for failing students (below 80%) */
+.student-card.not-eligible:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+    border-color: #e74c3c;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(231, 76, 60, 0.1));
+}
+
+.student-card.not-eligible:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #e74c3c;
+    border-radius: inherit;
+    animation: cardPulseRed 1.5s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animation keyframes for passing students */
+@keyframes cardPulseGreen {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation keyframes for failing students */
+@keyframes cardPulseRed {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Additional hover effects for card elements */
+.student-card.eligible:hover .initials-circle {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.student-card.not-eligible:hover .initials-circle {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+.student-card.eligible:hover .progress-fill {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.student-card.not-eligible:hover .progress-fill {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.student-card.eligible:hover .eligibility-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.student-card.not-eligible:hover .eligibility-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+/* Toppers Page Styles */
+.toppers-section {
+    padding: 4rem 0;
+}
+
+.toppers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.toppers-category {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 188, 212, 0.1);
+    border: 2px solid #00bcd4;
+}
+
+.toppers-category h3 {
+    color: #00bcd4;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toppers-category h3 i {
+    color: #00bcd4;
+}
+
+.toppers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.topper-card {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #e0f7fa;
+}
+
+.topper-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+    border-color: #00bcd4;
+    background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+}
+
+.topper-card .rank {
+    background: #00bcd4;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-right: 1rem;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+}
+
+.topper-info h4 {
+    margin: 0;
+    color: #00838f;
+    font-size: 1.1rem;
+}
+
+.topper-info p {
+    margin: 0.25rem 0 0;
+    color: #006064;
+    font-size: 0.9rem;
+}
+
+/* Toppers Button Style */
+.toppers-button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.toppers-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Exam Card Toppers Button */
+.exam-card .toppers-button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exam-card .toppers-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Responsive adjustments for topper buttons */
+@media (max-width: 768px) {
+    .topper-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .topper-buttons .toppers-button {
+        max-width: 100%;
+    }
+}
+
+/* Preview Button Styles */
+.preview-btn {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.preview-btn i {
+    font-size: 1rem;
+}
+
+.preview-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0f7fa;
+    position: relative;
+}
+
+.modal-header h3 {
+    color: #00bcd4;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.close-modal i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: #e0f7fa;
+    color: #00bcd4;
+}
+
+.close-modal:hover i {
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.topper-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    background-color: #e0f7fa;
+    transform: translateX(5px);
+}
+
+.detail-item i {
+    color: #00bcd4;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #00838f;
+    min-width: 120px;
+}
+
+.detail-value {
+    color: #006064;
+    font-weight: 500;
+}
+
+/* Responsive Modal Styles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detail-label {
+        min-width: auto;
+    }
+}
+
+.text-center {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.directors {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.directors h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.directors-list p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}

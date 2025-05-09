@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramzan Exam Toppers - Saiban e Zahra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1></h1>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="toppers-section">
+            <div class="container">
+                <h2>Ramzan Exam Toppers</h2>
+                
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="saiban-ladies">
+                        <i class="fas fa-female"></i> Saiban Ladies Toppers
+                    </button>
+                    <button class="category-btn" data-category="mumtazabad-ladies">
+                        <i class="fas fa-female"></i> Mumtazabad Ladies Toppers
+                    </button>
+                </div>
+
+                <div class="toppers-container">
+                    <div class="toppers-category" id="saiban-ladies">
+                        <h3><i class="fas fa-female"></i> Saiban Ladies Toppers</h3>
+                        <div class="toppers-list">
+                            <div class="topper-card">
+                                <div class="rank">1st</div>
+                                <div class="topper-info">
+                                    <h4>Urwa Niazi</h4>
+                                    <p>Roll No: 143</p>
+                                    <button class="preview-btn" data-topper="urwa-niazi">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">2nd</div>
+                                <div class="topper-info">
+                                    <h4>Sadia Rizwan</h4>
+                                    <p>Roll No: 99</p>
+                                    <button class="preview-btn" data-topper="sadia-rizwan">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">3rd</div>
+                                <div class="topper-info">
+                                    <h4>Aliya Farheen</h4>
+                                    <p>Roll No: 161</p>
+                                    <button class="preview-btn" data-topper="aliya-farheen">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">4th</div>
+                                <div class="topper-info">
+                                    <h4>Ferheen Zahra</h4>
+                                    <p>Roll No: 162</p>
+                                    <button class="preview-btn" data-topper="ferheen-zahra">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="toppers-category" id="mumtazabad-ladies">
+                        <h3><i class="fas fa-female"></i> Mumtazabad Ladies Toppers</h3>
+                        <div class="toppers-list">
+                            <div class="topper-card">
+                                <div class="rank">1st</div>
+                                <div class="topper-info">
+                                    <h4>Kissa Zahra Naqvi</h4>
+                                    <p>Roll No: 48</p>
+                                    <button class="preview-btn" data-topper="kissa-zahra">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">2nd</div>
+                                <div class="topper-info">
+                                    <h4>Yasmeen Akbar</h4>
+                                    <p>Roll No: 2</p>
+                                    <button class="preview-btn" data-topper="yasmeen-akbar">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">3rd</div>
+                                <div class="topper-info">
+                                    <h4>Sakina Batool</h4>
+                                    <p>Roll No: 71</p>
+                                    <button class="preview-btn" data-topper="sakina-batool">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="topper-card">
+                                <div class="rank">4th</div>
+                                <div class="topper-info">
+                                    <h4>Maryam Ali</h4>
+                                    <p>Roll No: 72</p>
+                                    <button class="preview-btn" data-topper="maryam-ali">
+                                        <i class="fas fa-eye"></i> Preview Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="topperModal">
+        <div class="modal-content fullscreen">
+            <button class="close-modal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3>Student Details</h3>
+            </div>
+            <div class="modal-body">
+                <div class="topper-details">
+                    <div class="detail-item">
+                        <i class="fas fa-user"></i>
+                        <span class="detail-label">Student Name</span>
+                        <span class="detail-value" id="modalName"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-id-card"></i>
+                        <span class="detail-label">Roll Number</span>
+                        <span class="detail-value" id="modalRoll"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star"></i>
+                        <span class="detail-label">Marks Obtained</span>
+                        <span class="detail-value" id="modalMarks"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-trophy"></i>
+                        <span class="detail-label">Rank</span>
+                        <span class="detail-value" id="modalRank"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="detail-label">Category</span>
+                        <span class="detail-value" id="modalCategory"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="detail-label">Attendance</span>
+                        <span class="detail-value" id="modalAttendance"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content.fullscreen {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            border-radius: 0;
+            padding: 3rem;
+            position: relative;
+            overflow-y: auto;
+            animation: modalSlideIn 0.5s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+
+        .modal-header h3 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            background: #3498db;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .topper-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .detail-item:hover::before {
+            width: 8px;
+        }
+
+        .detail-item i {
+            font-size: 2rem;
+            color: #3498db;
+            margin-right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover i {
+            background: #3498db;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-right: 1rem;
+            min-width: 150px;
+            font-size: 1.1rem;
+        }
+
+        .detail-value {
+            color: #34495e;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content.fullscreen {
+                padding: 1.5rem;
+            }
+
+            .modal-header h3 {
+                font-size: 1.8rem;
+            }
+
+            .close-modal {
+                top: 1rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .topper-details {
+                padding: 1rem;
+            }
+
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 1.2rem;
+            }
+
+            .detail-item i {
+                margin-bottom: 1rem;
+            }
+
+            .detail-label {
+                margin-bottom: 0.5rem;
+                min-width: auto;
+            }
+
+            .detail-value {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Topper Cards Styles */
+        .toppers-container {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .toppers-category {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .toppers-category h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toppers-category h3 i {
+            color: #3498db;
+        }
+
+        .toppers-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .topper-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            overflow: hidden;
+        }
+
+        .topper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.1));
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .topper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #3498db;
+        }
+
+        .topper-card:hover::before {
+            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.2));
+        }
+
+        .rank {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            z-index: 2;
+            min-width: 60px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .topper-info {
+            position: relative;
+            z-index: 2;
+            padding-right: 80px;
+        }
+
+        .topper-info h4 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            padding-right: 10px;
+        }
+
+        .topper-info p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .preview-btn:hover {
+            background: #2980b9;
+            transform: translateX(5px);
+        }
+
+        .preview-btn i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .toppers-list {
+                grid-template-columns: 1fr;
+            }
+
+            .topper-card {
+                padding: 1.2rem;
+            }
+
+            .topper-info h4 {
+                font-size: 1.2rem;
+            }
+
+            .rank {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Category Buttons Styles */
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: #fff;
+            border: 2px solid #3498db;
+            color: #3498db;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .category-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .category-btn i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .category-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .category-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Saiban e Zahra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('topperModal');
+        const closeBtn = document.querySelector('.close-modal');
+        const previewBtns = document.querySelectorAll('.preview-btn');
+
+        // Topper data
+        const topperData = {
+            'urwa-niazi': {
+                name: 'Urwa Niazi',
+                roll: '143',
+                marks: '94%',
+                rank: '1st',
+                category: 'Saiban Ladies',
+                attendance: '90%'
+            },
+            'sadia-rizwan': {
+                name: 'Sadia Rizwan',
+                roll: '99',
+                marks: '93%',
+                rank: '2nd',
+                category: 'Saiban Ladies',
+                attendance: '100%'
+            },
+            'aliya-farheen': {
+                name: 'Aliya Farheen',
+                roll: '161',
+                marks: '92%',
+                rank: '3th',
+                category: 'Saiban Ladies',
+                attendance: '100%'
+            },
+            'ferheen-zahra': {
+                name: 'Ferheen Zahra',
+                roll: '162',
+                marks: '92%',
+                rank: '3th',
+                category: 'Saiban Ladies',
+                attendance: '95%'
+            },
+            'kissa-zahra': {
+                name: 'Kissa Zahra Naqvi',
+                roll: '48',
+                marks: '95%',
+                rank: '1st',
+                category: 'Mumtazabad Ladies'
+            },
+            'yasmeen-akbar': {
+                name: 'Yasmeen Akbar',
+                roll: '2',
+                marks: '93%',
+                rank: '2nd',
+                category: 'Mumtazabad Ladies'
+            },
+            'sakina-batool': {
+                name: 'Sakina Batool',
+                roll: '71',
+                marks: '93%',
+                rank: '2nd',
+                category: 'Mumtazabad Ladies'
+            },
+            'maryam-ali': {
+                name: 'Maryam Ali',
+                roll: '72',
+                marks: '93%',
+                rank: '2nd',
+                category: 'Mumtazabad Ladies'
+            }
+        };
+
+        // Function to close modal
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open modal
+        previewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const topperId = btn.getAttribute('data-topper');
+                const data = topperData[topperId];
+                
+                document.getElementById('modalName').textContent = data.name;
+                document.getElementById('modalRoll').textContent = data.roll;
+                document.getElementById('modalMarks').textContent = data.marks;
+                document.getElementById('modalRank').textContent = data.rank;
+                document.getElementById('modalCategory').textContent = data.category;
+                document.getElementById('modalAttendance').textContent = data.attendance || 'N/A';
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Category switching functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const topperCategories = document.querySelectorAll('.toppers-category');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+                
+                // Hide all categories
+                topperCategories.forEach(cat => {
+                    cat.style.display = 'none';
+                });
+                
+                // Show selected category
+                document.getElementById(category).style.display = 'block';
+            });
+        });
+
+        // Initially hide all categories except saiban-ladies
+        topperCategories.forEach(cat => {
+            if (cat.id !== 'saiban-ladies') {
+                cat.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> 

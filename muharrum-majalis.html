@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muharrum Majalis 2024 - Saiban e Zahra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .video-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .video-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .page-title p {
+            margin: 1rem 0 0 0;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Saiban e Zahra</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#contact" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>Muharrum Majalis 2024</h1>
+        <p>Watch and learn from our comprehensive Muharrum lecture series</p>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-grid">
+        <!-- Video cards will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoGrid = document.querySelector('.video-grid');
+            
+            // Array of 26 placeholder video IDs
+            const videoIds = [
+                'MAJLIS_ID_1', 'MAJLIS_ID_2', 'MAJLIS_ID_3', 'MAJLIS_ID_4', 'MAJLIS_ID_5',
+                'MAJLIS_ID_6', 'MAJLIS_ID_7', 'MAJLIS_ID_8', 'MAJLIS_ID_9', 'MAJLIS_ID_10',
+                'MAJLIS_ID_11', 'MAJLIS_ID_12', 'MAJLIS_ID_13', 'MAJLIS_ID_14', 'MAJLIS_ID_15',
+                'MAJLIS_ID_16', 'MAJLIS_ID_17', 'MAJLIS_ID_18', 'MAJLIS_ID_19', 'MAJLIS_ID_20',
+                'MAJLIS_ID_21', 'MAJLIS_ID_22', 'MAJLIS_ID_23', 'MAJLIS_ID_24', 'MAJLIS_ID_25',
+                'MAJLIS_ID_26'
+            ];
+            
+            // Create 26 video cards
+            videoIds.forEach((videoId, index) => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                
+                const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                
+                videoCard.innerHTML = `
+                    <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="video-link">
+                        <div class="video-thumbnail">
+                            <img src="${thumbnailUrl}" alt="Muharrum Majlis ${index + 1}">
+                        </div>
+                        <div class="video-info">
+                            <h3>Muharrum Majlis ${index + 1}</h3>
+                            <p>Click to watch the full lecture</p>
+                        </div>
+                    </a>
+                `;
+                
+                videoGrid.appendChild(videoCard);
+            });
+        });
+    </script>
+</body>
+</html> 

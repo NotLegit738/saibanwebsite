@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Zahra Medical Centre - Free Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .slider {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .slide-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s;
+            animation-fill-mode: both;
+        }
+
+        .slide-content .cta-button {
+            animation: fadeInUp 1s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .slider-nav.prev {
+            left: 20px;
+        }
+
+        .slider-nav.next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        /* Doctors Section */
+        .doctors {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 3px;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .doctor-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-width: 0;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .doctor-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-bg);
+            min-height: 80px;
+        }
+
+        .doctor-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+        }
+
+        .doctor-icon i {
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        .doctor-title {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .doctor-title h3 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .doctor-title .doctor-specialty {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .doctor-schedule {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .schedule-item:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .schedule-item i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            width: 20px;
+            font-size: 1.1rem;
+        }
+
+        .doctor-location {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 12px 25px;
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+        }
+
+        .location-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .location-link i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .location-link span {
+            font-size: 1rem;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-bg) 100%);
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .mission-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .mission-icon:hover {
+            transform: scale(1.2);
+        }
+
+        /* Location Section */
+        .location {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .map-container {
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+        }
+
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-info p:hover {
+            background-color: var(--light-bg);
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button i {
+            color: white;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 80px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .doctors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+                margin-top: 120px;
+            }
+
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .mission-icons {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-bg) 100%);
+        }
+
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-info p:hover {
+            background-color: var(--light-bg);
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button i {
+            color: white;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Location Section Updates */
+        .map-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+        }
+
+        .map-button:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .map-button i {
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        /* Update Find Us button styles */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Al-Zahra Medical Centre</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                <div class="slide-content">
+                    <h1>Al-Zahra Medical Centre</h1>
+                    <p>Free Healthcare, For a Healthier Tomorrow</p>
+                    <a href="#location" class="cta-button">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Find Us
+                    </a>
+                    <p class="subtext">Proudly serving our community with compassion and care — at no cost.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                <div class="slide-content">
+                    <h1>Professional Care</h1>
+                    <p>Expert doctors and modern facilities</p>
+                    <a href="#doctors" class="cta-button">
+                        <i class="fas fa-user-md"></i>
+                        Meet Our Doctors
+                    </a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                <div class="slide-content">
+                    <h1>24/7 Support</h1>
+                    <p>Always here when you need us</p>
+                    <a href="#contact" class="cta-button">
+                        <i class="fas fa-phone"></i>
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <button class="slider-nav prev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-nav next" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <h2 class="section-title">Our Doctors – Different Days, Same Dedication</h2>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-header">
+                        <div class="doctor-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="doctor-title">
+                            <h3>Dr. Sarah Ahmed</h3>
+                            <span class="doctor-specialty">General Physician</span>
+                        </div>
+                    </div>
+                    <div class="doctor-schedule">
+                        <div class="schedule-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Monday & Wednesday</span>
+                        </div>
+                        <div class="schedule-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9 AM - 1 PM</span>
+                        </div>
+                    </div>
+                    <div class="doctor-location">
+                        <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank" class="location-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>View Location</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-header">
+                        <div class="doctor-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="doctor-title">
+                            <h3>Dr. Mohammad Khan</h3>
+                            <span class="doctor-specialty">Pediatrician</span>
+                        </div>
+                    </div>
+                    <div class="doctor-schedule">
+                        <div class="schedule-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Tuesday & Thursday</span>
+                        </div>
+                        <div class="schedule-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9 AM - 1 PM</span>
+                        </div>
+                    </div>
+                    <div class="doctor-location">
+                        <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank" class="location-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>View Location</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-header">
+                        <div class="doctor-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="doctor-title">
+                            <h3>Dr. Fatima Ali</h3>
+                            <span class="doctor-specialty">Gynecologist</span>
+                        </div>
+                    </div>
+                    <div class="doctor-schedule">
+                        <div class="schedule-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Friday & Saturday</span>
+                        </div>
+                        <div class="schedule-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9 AM - 1 PM</span>
+                        </div>
+                    </div>
+                    <div class="doctor-location">
+                        <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank" class="location-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>View Location</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-header">
+                        <div class="doctor-icon">
+                            <i class="fas fa-allergies"></i>
+                        </div>
+                        <div class="doctor-title">
+                            <h3>Dr. Hassan Raza</h3>
+                            <span class="doctor-specialty">Dermatologist</span>
+                        </div>
+                    </div>
+                    <div class="doctor-schedule">
+                        <div class="schedule-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Monday & Friday</span>
+                        </div>
+                        <div class="schedule-item">
+                            <i class="fas fa-clock"></i>
+                            <span>2 PM - 5 PM</span>
+                        </div>
+                    </div>
+                    <div class="doctor-location">
+                        <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank" class="location-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>View Location</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2 class="section-title">Why We Serve Free</h2>
+            <p>At Al-Zahra Medical Centre, we believe that quality healthcare is a fundamental right, not a privilege. Our mission is to ensure that every member of our community has access to professional medical care, regardless of their financial situation. Through the generous support of our donors and dedicated medical professionals, we provide comprehensive healthcare services completely free of charge.</p>
+            <div class="mission-icons">
+                <i class="fas fa-heart mission-icon"></i>
+                <i class="fas fa-hand-holding-medical mission-icon"></i>
+                <i class="fas fa-users mission-icon"></i>
+                <i class="fas fa-stethoscope mission-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title">Find Us</h2>
+            <div class="location-content">
+                <div class="map-container">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.6072514772094!2d71.4771844!3d30.2344768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b33c669af44c5%3A0x7f183db5ff9fa62b!2sImam%20Bargah%20Saiban%20e%20Zahra!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.234477,71.477184,16z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?hl=en&entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-button">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Click Me to Get Location
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank">Imam Bargah Saiban e Zahra, Multan</a></p>
+                    <p><i class="fas fa-clock"></i> Timings: 9 AM to 5 PM (Mon–Sat)</p>
+                    <p><i class="fas fa-phone"></i> Phone: +92 03080002986</p>
+                    <p><i class="fas fa-envelope"></i> Email: saibanezahra110@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Imam+Bargah+Saiban+e+Zahra/@30.2345845,71.4770803,18.75z/data=!4m6!3m5!1s0x393b33c669af44c5:0x7f183db5ff9fa62b!8m2!3d30.2344768!4d71.4771844!16s%2Fg%2F11pb7hk7b8?entry=tts" target="_blank">Imam Bargah Saiban e Zahra, Multan</a></p>
+                <p><i class="fas fa-phone"></i> Phone: +92 03080002986</p>
+                <p><i class="fas fa-envelope"></i> Email: saibanezahra110@gmail.com</p>
+                <a href="https://chat.whatsapp.com/D4VrNKPkjkv68lFY1DOvbL" target="_blank" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Join Our WhatsApp Group
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelector('.slider-dots');
+        const prevBtn = document.querySelector('.slider-nav.prev');
+        const nextBtn = document.querySelector('.slider-nav.next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dots.appendChild(dot);
+        });
+
+        const dotElements = document.querySelectorAll('.dot');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                dotElements[index].classList.remove('active');
+            });
+            slides[currentSlide].classList.add('active');
+            dotElements[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        // Start auto-sliding
+        resetInterval();
+
+        // Pause on hover
+        const slider = document.querySelector('.slider');
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', resetInterval);
+    </script>
+</body>
+</html> 

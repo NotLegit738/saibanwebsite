@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramzan Classes 2024 - Saiban e Zahra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #f0f0f0;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .video-thumbnail:hover .play-button {
+            background: rgba(0, 188, 212, 0.9);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-info {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .video-info h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .video-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .watch-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .watch-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #0097a7 0%, #00bcd4 100%);
+        }
+
+        .watch-button i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .watch-button:hover i {
+            transform: scale(1.1);
+        }
+
+        .video-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .page-title p {
+            margin: 1rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .video-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Saiban e Zahra</a>
+            <a href="index.html" class="mobile-home-button">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#contact" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>Ramzan Classes 2024</h1>
+        <p>Watch and learn from our comprehensive Ramzan lecture series</p>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-grid">
+        <!-- Video cards will be dynamically added here -->
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal">
+        <div class="modal-content">
+            <button class="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoGrid = document.querySelector('.video-grid');
+            const modal = document.querySelector('.video-modal');
+            const modalIframe = modal.querySelector('iframe');
+            const closeModal = modal.querySelector('.close-modal');
+            
+            // Array of 21 video IDs
+            const videoIds = [
+                'YyUmKc31zbU',      // Lecture 1
+                'LM6MxLbmRPg',      // Lecture 2
+                'Clu6a5NWk3M',      // Lecture 3
+                '3AyJzWXWxlQ',      // Lecture 4
+                '5pLrTx9WviU',      // Lecture 5
+                'X-17MNIZNTI',      // Lecture 6
+                'SitjUuNgAq8',      // Lecture 7
+                'A1S-va_XIkA',      // Lecture 8
+                'pIpg15trxpM',      // Lecture 9
+                'j77musAoBMM',      // Lecture 10
+                'c9xAJI_di80',      // Lecture 11
+                'kUYfA6RnU2I',      // Lecture 12
+                'Ig7XdRcXUrA',      // Lecture 13
+                'n15sK5APAC8',      // Lecture 14
+                'iw6FumzIHSE',      // Lecture 15
+                'Vob-mup5YH4',      // Lecture 16
+                'o_JJ6bTcfTs',      // Lecture 17
+                'TmiM6zdZDwg',      // Lecture 18
+                '_CBH-7Udbyo',      // Lecture 19
+                'MhZLcGhv7_s',      // Lecture 20
+                '3nsYIThN1iE'       // Lecture 21
+            ];
+            
+            // Create 21 video cards
+            videoIds.forEach((videoId, index) => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                
+                const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                
+                videoCard.innerHTML = `
+                    <div class="video-thumbnail" data-video-id="${videoId}">
+                        <img src="${thumbnailUrl}" alt="Ramzan Class ${index + 1}">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Ramzan Class ${index + 1}</h3>
+                        <p>Watch the complete lecture</p>
+                        <button class="watch-button" data-video-id="${videoId}">
+                            <i class="fas fa-play-circle"></i> Click to Watch
+                        </button>
+                    </div>
+                `;
+                
+                videoGrid.appendChild(videoCard);
+            });
+
+            // Add click event listeners to thumbnails and watch buttons
+            document.querySelectorAll('.video-thumbnail, .watch-button').forEach(element => {
+                element.addEventListener('click', () => {
+                    const videoId = element.dataset.videoId;
+                    modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal when clicking the close button
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('active');
+                modalIframe.src = '';
+                document.body.style.overflow = '';
+            });
+
+            // Close modal when clicking outside the video
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    modalIframe.src = '';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close modal when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    modalIframe.src = '';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

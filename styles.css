@@ -26,11 +26,15 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.logo {
+    display: none;
 }
 
 .mobile-home-button {
@@ -71,6 +75,9 @@ nav {
     display: flex;
     list-style: none;
     gap: 1rem;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -97,17 +104,53 @@ nav {
 /* Hero Section */
 .hero.welcome-page {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://cdn.discordapp.com/attachments/1359850695213449326/1370361143641772113/image.png?ex=681f37c4&is=681de644&hm=9446fe37f36b0ac136da89135b2bf0d1742a337e58d8714b41161aa0092e8f0b&');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
     padding-top: 100px;
+}
+
+.slide.active .slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://i.postimg.cc/cHDCwMrx/firstimage1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.slide.active .welcome-text {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+
+.welcome-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text p {
+    margin-bottom: 2rem;
 }
 
 .hero-content {
@@ -137,8 +180,8 @@ nav {
 /* Button Group */
 .button-group {
     display: flex;
-    gap: 1rem;
     justify-content: center;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
@@ -2283,4 +2326,534 @@ footer {
 .directors-list p {
     margin: 0.5rem 0;
     font-size: 1.1rem;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* First slide - Welcome page */
+.slide:nth-child(1) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://i.postimg.cc/cHDCwMrx/firstimage1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Second slide - Muharrum Majalis */
+.slide:nth-child(2) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://i.postimg.cc/Pr7k9R1m/image2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.slide:nth-child(2) .slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slide:nth-child(2) .majalis-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in;
+}
+
+/* Third slide - Prayer Hall */
+.slide:nth-child(3) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://i.postimg.cc/QxKX8D86/Adobe-Express-file.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.slide:nth-child(3) .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.slide:nth-child(3) .prayer-hall-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in;
+}
+
+.slide:nth-child(3) .prayer-timings-btn {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide:nth-child(3) .prayer-timings-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .slide:nth-child(2) .majalis-text {
+        font-size: 2.5rem;
+    }
+    
+    .slide:nth-child(3) .prayer-hall-text {
+        font-size: 2.5rem;
+    }
+    
+    .slide:nth-child(3) .prayer-timings-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Fourth slide - Medical Centre */
+.slide:nth-child(4) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.slide:nth-child(4) .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.slide:nth-child(4) .medical-centre-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in;
+}
+
+.slide:nth-child(4) .medical-centre-btn {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide:nth-child(4) .medical-centre-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Add styles for Muharrum Majalis button */
+.slide:nth-child(2) .majalis-btn {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+}
+
+.slide:nth-child(2) .majalis-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .slide:nth-child(4) .medical-centre-text {
+        font-size: 2.5rem;
+    }
+    
+    .slide:nth-child(4) .medical-centre-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .slide:nth-child(2) .majalis-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Slider Nav Styles */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-nav.prev {
+    left: 20px;
+}
+
+.slider-nav.next {
+    right: 20px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* Responsive Slider Styles */
+@media (max-width: 768px) {
+    .slider-container {
+        height: 60vh;
+    }
+
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-nav.prev {
+        left: 10px;
+    }
+
+    .slider-nav.next {
+        right: 10px;
+    }
+
+    .slider-dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Fifth slide - Ramzan Classes */
+.slide:nth-child(5) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://i.postimg.cc/Gp7xrVxj/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.slide:nth-child(5) .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.slide:nth-child(5) .ramzan-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in;
+}
+
+.slide:nth-child(5) .ramzan-btn {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide:nth-child(5) .ramzan-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust button positions for all slides */
+.slide:nth-child(2) .slide-content,
+.slide:nth-child(3) .slide-content,
+.slide:nth-child(4) .slide-content,
+.slide:nth-child(5) .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .slide:nth-child(5) .ramzan-text {
+        font-size: 2.5rem;
+    }
+    
+    .slide:nth-child(5) .ramzan-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Sixth slide - Video Preview */
+.slide:nth-child(6) .slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.slide:nth-child(6) .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 0;
+    position: relative;
+    height: 100%;
+}
+
+.slide:nth-child(6) .video-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.slide:nth-child(6) .video-preview iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide:nth-child(6) .video-content {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    text-align: right;
+}
+
+.slide:nth-child(6) .video-text {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.slide:nth-child(6) .live-programs-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide:nth-child(6) .live-programs-btn:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.slide:nth-child(6) .live-programs-btn i {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .slide:nth-child(6) .video-content {
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+    }
+
+    .slide:nth-child(6) .video-text {
+        font-size: 1.5rem;
+    }
+    
+    .slide:nth-child(6) .live-programs-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
 }
